@@ -27,7 +27,7 @@
  *
  */
 function getFizzBuzz(num) {
-  if (num % 3 === 0 && num % 15 === 0) {
+  if (num % 3 === 0 && num % 5 === 0) {
     return 'FizzBuzz';
   }
   if (num % 3 === 0) {
@@ -595,11 +595,15 @@ function evaluateTicTacToePosition(position) {
   }
 
 
-  const diagonal1 = `${position[0][0]}${position[1][1]}${position[2][2]}`;
-  const diagonal2 = `${position[0][2]}${position[1][1]}${position[2][0]}`;
+  if ((rows[0][0] === 'X' && rows[1][1] === 'X' && rows[2][2] === 'X')
+  || (rows[2][0] === 'X' && rows[1][1] === 'X' && rows[0][2] === 'X')) {
+    return 'X';
+  }
 
-  if (diagonal1.includes('XXX') || diagonal2.includes('XXX')) return 'X';
-  if (diagonal1.includes('000') || diagonal2.includes('000')) return '0';
+  if ((rows[0][0] === '0' && rows[1][1] === '0' && rows[2][2] === '0')
+  || (rows[2][0] === '0' && rows[1][1] === '0' && rows[0][2] === '0')) {
+    return '0';
+  }
 
   return undefined;
 }

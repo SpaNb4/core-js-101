@@ -51,7 +51,7 @@ function getCicleCircumference(radius) {
  */
 function getAverage(value1, value2) {
   if (value1 >= Number.MAX_VALUE) {
-    return BigInt(value1) / 2n + BigInt(value2) / 2n;
+    return Math.round(value1) / 2 + Math.round(value2) / 2;
   }
   return (value1 + value2) / 2;
 }
